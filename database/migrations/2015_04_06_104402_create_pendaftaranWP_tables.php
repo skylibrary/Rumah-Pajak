@@ -16,12 +16,12 @@ class CreatePendaftaranWPTables extends Migration {
 		{
 			$table->increments('id');
 			$table->timestamps();
-            $table->string('Nama');
-            $table->string('Alamat');
-            $table->string('Tempat lahir');
-            $table->string('Tanggal lahir');
-            $table->enum('Status Perkawinan',['Sudah Kawin','Belum Kawin']);
-            $table->enum('Pekerjaan',['Mahasiswa/Pelajar','Pegawai Swasta','Pegawai Negri']);
+            $table->string('nama');
+            $table->string('alamat');
+            $table->string('tempat_lahir');
+            $table->string('tanggal_lahir');
+            $table->enum('status_perkawinan',['Sudah Kawin','Belum Kawin']);
+            $table->enum('pekerjaan',['Mahasiswa/Pelajar','Pegawai Swasta','Pegawai Negri']);
         });
 	}
 

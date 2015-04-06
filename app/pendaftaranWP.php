@@ -8,7 +8,8 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Model as Eloquent;
 
-class pendaftaranWP {
+class pendaftaranWP extends Eloquent{
     protected $table = 'pendaftaran_wp';
 }

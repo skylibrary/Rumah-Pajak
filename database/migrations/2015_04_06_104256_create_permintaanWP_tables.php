@@ -16,8 +16,8 @@ class CreatePermintaanWPTables extends Migration {
 		{
 			$table->increments('id');
 			$table->timestamps();
-            $table->enum('KategoriPermintaan',['Pencabutan WP','Keberatan Pajak']);
-            $table->string('DetilPermintaan');
+            $table->enum('kategori_permintaan',['Pencabutan WP','Keberatan Pajak']);
+            $table->string('detil_permintaan');
 		});
 	}
 

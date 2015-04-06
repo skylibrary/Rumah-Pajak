@@ -8,7 +8,8 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Model as Eloquent;
 
-class WajibPajak {
+class WajibPajak extends  Eloquent{
     protected $table = 'wajibpajak';
 }

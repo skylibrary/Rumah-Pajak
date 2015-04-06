@@ -16,7 +16,7 @@ class CreateWajibPajakTables extends Migration {
 		{
 			$table->increments('id');
 			$table->timestamps();
-            $table->string('Nama');
+            $table->string('nama');
         });
 	}
 

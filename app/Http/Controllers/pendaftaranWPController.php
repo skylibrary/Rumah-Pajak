@@ -4,6 +4,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use App\pendaftaranWP;
+use Io
 
 class pendaftaranWPController extends Controller {
 
@@ -14,71 +16,21 @@ class pendaftaranWPController extends Controller {
 	 */
 	public function index()
 	{
-		//
+		$daftarWP = pendaftaranWP::get();
+        return view('pages.daftarWP',compact('daftarWP'));
 	}
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		//
-	}
+    public function setuju($id)
+    {
+        $daftarWP = pendaftaranWP::get();
+        App::make('WajibPajakController')->input($id);
+        $daftarWP ->find($id)->delete();
+        return view('pages.daftarWPnotif');
+    }
+    public function delete($id)
+    {
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		//
-	}
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
-
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
-
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
-
+    }
 }
