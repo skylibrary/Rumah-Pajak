@@ -17,6 +17,13 @@ Route::get('home', 'HomeController@index');
 
 Route::get('setuju/{id}', 'PendaftaranWPController@setuju');
 
+Route::get('minta/add/{id}', 'PermintaanWPController@ajuMinta');
+Route::post('minta/add/{id}', 'PermintaanWPController@add');
+Route::get('minta/see/{id}', 'PermintaanWPController@seeMinta');
+Route::get('minta/change', 'PermintaanWPController@cekMinta');
+Route::get('minta/setuju/{id}', 'PermintaanWPController@setuju');
+Route::get('minta/tolak/{id}', 'PermintaanWPController@tolak');
+
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
