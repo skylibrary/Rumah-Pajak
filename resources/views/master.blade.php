@@ -13,8 +13,8 @@
     <title> Rumah Pajak </title>
 </head>
 <body>
-    @yield('header')
+    <h1>Rumah-Pajak</h1>
+    <h3>Home    Pengajuan   Contact</h3>
     @yield('content')
-    @yield('footer')
 </body>
 </html>
