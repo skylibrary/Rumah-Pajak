@@ -11,4 +11,14 @@ class WajibPajakController extends Controller {
     public function input($id){
         WajibPajak::insert('insert into users (nama) values (?)', [pendaftaranWP::get()->find($id)->nama]);
     }
+
+    public function viewLebihPajak($id)
+    {
+
+    	$wp = WajibPajak::find($id);
+
+    	$kelebihanPajak = $wp->KelebihanPajak;
+
+    	return view("pages.ViewKelebihanPajak", compact('kelebihanPajak'));
+    }
 }

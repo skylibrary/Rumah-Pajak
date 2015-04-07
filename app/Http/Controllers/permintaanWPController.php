@@ -1,84 +1,52 @@
 <?php namespace App\Http\Controllers;
 
+use App\permintaanWP;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use Illuminate\Http\Request;
+use Request;
 
 class permintaanWPController extends Controller {
-
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
-		//
+	public function ajuMinta($id){
+		//$npwp='12345ABCD';
+		$npwp=$id;
+		return view('pages.ajumintaWP',compact('npwp'));
 	}
-
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		//
+	
+	public function seeMinta($id){
+		//$npwp='12345ABCD';
+		$npwp=$id;
+		$daftarminta = permintaanWP
+		::where('NPWP_peminta',$npwp)
+		->orderBy('updated_at','desc')
+		->get()
+		;
+		return view('pages.cekmintaWP',compact('daftarminta','npwp'));
 	}
-
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		//
+	
+	public function cekMinta(){
+		$daftarminta = permintaanWP
+		::orderBy('status_permintaan','asc')
+		->latest()
+		->get();
+		return view('pages.cekmintaPetugas',compact('daftarminta'));
 	}
-
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
+	
+	public function add($id){
+		permintaanWP::create(Request::all());
+		return redirect('minta/see/'.$id);
 	}
-
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
+	
+	public function setuju($id){
+		$minta = permintaanWP::findOrFail($id);
+		$minta->status_permintaan='Disetujui';
+		$minta->save();
+		return redirect('minta/change');
 	}
-
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
+	public function tolak($id){
+		$minta = permintaanWP::findOrFail($id);
+		$minta->status_permintaan='Ditolak';
+		$minta->save();
+		return redirect('minta/change');
 	}
-
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
-
 }

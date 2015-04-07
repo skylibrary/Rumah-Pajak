@@ -8,7 +8,13 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Model;
 
-class permintaanWP {
+class permintaanWP  extends Model {
     protected $table = 'permintaan_wp';
+	protected $fillable = [
+		'NPWP_peminta',
+		'kategori_permintaan',
+		'detil_permintaan'
+	];
 }

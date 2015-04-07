@@ -16,8 +16,10 @@ class CreatePermintaanWPTables extends Migration {
 		{
 			$table->increments('id');
 			$table->timestamps();
+			$table->string('NPWP_peminta');
             $table->enum('kategori_permintaan',['Pencabutan WP','Keberatan Pajak']);
             $table->string('detil_permintaan');
+			$table->enum('status_permintaan',['Pending','Disetujui','Ditolak']);
 		});
 	}
 
