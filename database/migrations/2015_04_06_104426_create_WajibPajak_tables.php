@@ -17,6 +17,7 @@ class CreateWajibPajakTables extends Migration {
 			$table->increments('id');
 			$table->timestamps();
             $table->string('nama');
+            $table->integer('KelebihanPajak');
         });
 	}
 

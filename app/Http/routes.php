@@ -23,6 +23,7 @@ Route::get('minta/see/{id}', 'PermintaanWPController@seeMinta');
 Route::get('minta/change', 'PermintaanWPController@cekMinta');
 Route::get('minta/setuju/{id}', 'PermintaanWPController@setuju');
 Route::get('minta/tolak/{id}', 'PermintaanWPController@tolak');
+Route::get('lihatKelebihanPajak/{id}', 'WajibPajakController@viewLebihPajak');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
