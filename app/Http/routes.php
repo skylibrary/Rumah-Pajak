@@ -16,6 +16,7 @@ Route::get('/', 'PendaftaranWPController@index');
 Route::get('home', 'HomeController@index');
 
 Route::get('setuju/{id}', 'PendaftaranWPController@setuju');
+Route::get('tolak/{id}', 'PendaftaranWPController@tolak');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

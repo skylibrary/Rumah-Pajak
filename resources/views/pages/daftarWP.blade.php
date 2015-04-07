@@ -22,7 +22,7 @@
             <td>{{$daftar->tempat_lahir}},{{$daftar->tanggal_lahir}}</td>
             <td>{{$daftar->status_perkawinan}}</td>
             <td>{{$daftar->pekerjaan}}</td>
-            <td><a href="/proyek2%20PPL/Rumah-Pajak/server.php/setuju/{{$daftar->id}}">Setuju</a> <a href="">Tolak</a></td>
+            <td><a href="/proyek2%20PPL/Rumah-Pajak/server.php/setuju/{{$daftar->id}}">Setuju</a> <a href="/proyek2%20PPL/Rumah-Pajak/server.php/tolak/{{$daftar->id}}">Tolak</a></td>
         </tr>
     @endforeach
     </table>

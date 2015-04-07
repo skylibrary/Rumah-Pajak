@@ -5,7 +5,6 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\pendaftaranWP;
-use Io
 
 class pendaftaranWPController extends Controller {
 
@@ -23,14 +22,14 @@ class pendaftaranWPController extends Controller {
     public function setuju($id)
     {
         $daftarWP = pendaftaranWP::get();
-        App::make('WajibPajakController')->input($id);
+        Controller::call('WajibPajakController@input');
         $daftarWP ->find($id)->delete();
         return view('pages.daftarWPnotif');
     }
-    public function delete($id)
+    public function tolak($id)
     {
-
-
-
+        $daftarWP = pendaftaranWP::get();
+        $daftarWP ->find($id)->delete();
+        return view('pages.daftarWPnotif');
     }
 }
