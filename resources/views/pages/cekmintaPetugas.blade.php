@@ -21,8 +21,12 @@
             <td>{{$minta->detil_permintaan}}</td>
             <td>{{$minta->status_permintaan}}</td>
             <td>
-				<a href="{{ url('minta/setuju',$minta->id) }}">Setuju</a>
+				@if ($minta->status_permintaan=='Pending')
+                <a href="{{ url('minta/setuju',$minta->id) }}">Setuju</a>
 				<a href="{{ url('minta/tolak',$minta->id) }}">Tolak</a>
+                    @else
+                -
+                    @endif
 			</td>
         </tr>
     @endforeach

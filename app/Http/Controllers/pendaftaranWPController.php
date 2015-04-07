@@ -5,7 +5,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\pendaftaranWP;
-
+use App\WajibPajak;
 class pendaftaranWPController extends Controller {
 
 	/**
@@ -22,7 +22,10 @@ class pendaftaranWPController extends Controller {
     public function setuju($id)
     {
         $daftarWP = pendaftaranWP::get();
-        Controller::call('WajibPajakController@input');
+        $tmp = new WajibPajak();
+        $tmp->nama=pendaftaranWP::get()->find($id)->nama;
+        $tmp->save();
+        //WajibPajak::create(['nama' => pendaftaranWP::get()->find($id)->nama]);
         $daftarWP ->find($id)->delete();
         return view('pages.daftarWPnotif');
     }

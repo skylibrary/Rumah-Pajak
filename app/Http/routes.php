@@ -11,12 +11,13 @@
 |
 */
 
-Route::get('/', 'PendaftaranWPController@index');
-
+Route::get('/', 'WelcomeController@index');
 Route::get('home', 'HomeController@index');
 
-Route::get('setuju/{id}', 'PendaftaranWPController@setuju');
-Route::get('tolak/{id}', 'PendaftaranWPController@tolak');
+Route::get('daftar/see', 'PendaftaranWPController@index');
+Route::get('daftar/setuju/{id}', 'PendaftaranWPController@setuju');
+Route::get('daftar/tolak/{id}', 'PendaftaranWPController@tolak');
+Route::get('daftar/setujuWP/{id}','WajibPajakController@input');
 
 Route::get('minta/add/{id}', 'PermintaanWPController@ajuMinta');
 Route::post('minta/add/{id}', 'PermintaanWPController@add');
